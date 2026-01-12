@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot name="linear_actuator" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ===== Base Link ===== -->
+  <link name="actuator_outer">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://linear_actuator/meshes/actuator_outer.stl"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://linear_actuator/meshes/actuator_outer.stl"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="2.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia
+        ixx="0.01" ixy="0.0" ixz="0.0"
+        iyy="0.01" iyz="0.0"
+        izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- ===== Rod Link ===== -->
+  <link name="actuator_inner">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://linear_actuator/meshes/actuator_inner.stl"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0 0 1 1.0"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <mesh filename="package://linear_actuator/meshes/actuator_inner.stl"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0"/>
+      <inertia
+        ixx="0.005" ixy="0.0" ixz="0.0"
+        iyy="0.005" iyz="0.0"
+        izz="0.005"/>
+    </inertial>
+  </link>
+
+  <!-- ===== Prismatic Joint ===== -->
+  <joint name="actuator_extension_joint" type="prismatic">
+    <parent link="actuator_outer"/>
+    <child link="actuator_inner"/>
+
+    <!-- Rod slides along Z -->
+    <axis xyz="0 0 1"/>
+
+    <!-- Start position of rod relative to base -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+
+    <!-- Stroke limits -->
+    <limit
+      lower="0.0"
+      upper="0.25"
+      effort="500"
+      velocity="0.045"/>
+  </joint>
+
+</robot>
