@@ -5,14 +5,15 @@ Repository that holds my progress for the project. This is a small project that 
 ## Current Progress 
 - URDF File and Rviz Simulation
 
-commands to run:
+Commands to launch:
+
+from workspace directory
 ```bash
 colcon build --symlink-install
-
 source install/setup.bash
-
 ros2 launch linear_actuator actuator_launch.launch
 ```
+note: source install is unessacry if the environment has been properly sourced in the bashrc
 
 ## To Do Next 
 - Set up simple controller in C++
