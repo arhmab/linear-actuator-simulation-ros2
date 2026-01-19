@@ -2,12 +2,17 @@
 Repository that holds my progress for the project. This is a small project that I aim to use to keep my skills in Mechatronics Control Simulation in practice. I am trying to create a simple controller for a linear actuator model from a previous project. The simulation will be in ROS2 with gazebo, however I want to be able to send commands to both the sim and the actual linear actuator I have. In this way I'm planning to use this project as a way to learn and experiment with Rust as well.
 
 
-## Current Progress URDF File and Rviz Simulation
+## Current Progress 
+- URDF File and Rviz Simulation
+
+commands to run:
+```bash
 colcon build --symlink-install
 
 source install/setup.bash
 
 ros2 launch linear_actuator actuator_launch.launch
+```
 
 ## To Do Next 
 - Set up simple controller in C++
