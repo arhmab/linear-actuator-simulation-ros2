@@ -1,3 +1,5 @@
+This project is still in progress, its more of an excuse for me to keep up with working in ROS and trying something new.
+
 # ROS2 Linear Actuator Controller - for Simulation
 Repository that holds my progress for the project. This is a small project that I aim to use to keep my skills in Mechatronics Control Simulation in practice. I am trying to create a simple controller for a linear actuator model from a previous project. The simulation will be in ROS2 with gazebo, however I want to be able to send commands to both the sim and the actual linear actuator I have. In this way I'm planning to use this project as a way to learn and experiment with Rust as well.
 
